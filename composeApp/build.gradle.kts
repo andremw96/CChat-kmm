@@ -73,7 +73,6 @@ android {
         implementation(libs.firebaseCommon)
         implementation(libs.koin.android)
         implementation(libs.koin.androix.compose)
-        implementation(libs.bundles.firebase.android)
         debugImplementation(compose.uiTooling)
     }
 }

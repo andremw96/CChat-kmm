@@ -2,7 +2,10 @@ package repository
 
 interface LoginRepository {
     suspend fun register(
+        name: String,
         email: String,
-        password: String,
+        pwd: String,
+        publicKey: String,
+        encryptedPrivKey: String,
     )
 }
