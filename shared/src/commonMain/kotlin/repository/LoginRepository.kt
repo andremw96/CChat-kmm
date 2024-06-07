@@ -7,8 +7,13 @@ interface LoginRepository {
     suspend fun register(
         name: String,
         email: String,
-        pwd: String,
+        password: String,
         publicKey: String,
         encryptedPrivKey: String,
+    ): Flow<Result<AuthResult>>
+
+    suspend fun loginUserAccount(
+        email: String,
+        password: String,
     ): Flow<Result<AuthResult>>
 }
