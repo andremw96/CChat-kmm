@@ -16,9 +16,10 @@ kotlin = "2.0.0"
 firebaseGMS = "4.4.2"
 firebaseBOM = "33.1.0"
 firebaseCommon = "21.0.0"
-kotlinx-serialization = "1.5.1"
+kotlinx-serialization = "1.6.0"
 koin-core = "3.4.3"
 firebase-kotlin-sdk = "1.12.0"
+kotlinx-coroutines = "1.7.1"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
@@ -43,6 +44,8 @@ firebase-kotlin-auth = { module = "dev.gitlive:firebase-auth", version.ref = "fi
 firebase-kotlin-database = { module = "dev.gitlive:firebase-database", version.ref = "firebase-kotlin-sdk" }
 firebase-kotlin-storage = { module = "dev.gitlive:firebase-storage", version.ref = "firebase-kotlin-sdk" }
 firebase-kotlin-installation = { module = "dev.gitlive:firebase-installations", version.ref = "firebase-kotlin-sdk" }
+
+kotlinx-coroutines = { module = "org.jetbrains.kotlinx:kotlinx-coroutines-core", version.ref = "kotlinx-coroutines" }
 
 [plugins]
 androidApplication = { id = "com.android.application", version.ref = "agp" }

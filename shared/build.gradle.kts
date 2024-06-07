@@ -31,6 +31,7 @@ kotlin {
             // put your Multiplatform dependencies here
             implementation(libs.kotlinx.serialization)
             implementation(libs.bundles.firebase.kotlin)
+            implementation(libs.kotlinx.coroutines)
 
             api(libs.koin.core)
             api(libs.koint.test)
