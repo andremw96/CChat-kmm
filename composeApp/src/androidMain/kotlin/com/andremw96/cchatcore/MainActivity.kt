@@ -1,28 +1,22 @@
 package com.andremw96.cchatcore
 
-import App
+import RegisterScreen
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.runtime.Composable
-import androidx.compose.ui.tooling.preview.Preview
-import com.google.firebase.ktx.Firebase
-import com.google.firebase.ktx.initialize
+import org.koin.androidx.viewmodel.ext.android.getViewModel
+import uicompose.screen.register.RegisterViewModel
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        Firebase.initialize(this)
-        
+
+        val registerViewModel: RegisterViewModel = getViewModel()
         setContent {
-            App()
+            RegisterScreen(
+                registerViewModel
+            )
         }
     }
-}
-
-@Preview
-@Composable
-fun AppAndroidPreview() {
-    App()
 }

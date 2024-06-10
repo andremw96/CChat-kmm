@@ -1,9 +1,10 @@
-package usecase
+package usecase.impl
 
 import dev.gitlive.firebase.auth.AuthResult
 import kotlinx.coroutines.flow.Flow
 import repository.LoginRepository
 import repository.Result
+import usecase.RegisterUser
 
 class RegisterUserImpl(
     private val repository: LoginRepository,

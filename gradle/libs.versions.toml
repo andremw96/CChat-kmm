@@ -4,7 +4,7 @@ android-compileSdk = "34"
 android-minSdk = "24"
 android-targetSdk = "34"
 androidx-activityCompose = "1.9.0"
-androidx-appcompat = "1.6.1"
+androidx-appcompat = "1.7.0"
 androidx-constraintlayout = "2.1.4"
 androidx-core-ktx = "1.13.1"
 androidx-espresso-core = "3.5.1"
@@ -19,7 +19,7 @@ firebaseCommon = "21.0.0"
 kotlinx-serialization = "1.6.0"
 koin-core = "3.4.3"
 firebase-kotlin-sdk = "1.12.0"
-kotlinx-coroutines = "1.7.1"
+kotlinx-coroutines = "1.8.0"
 
 [libraries]
 kotlin-test = { module = "org.jetbrains.kotlin:kotlin-test", version.ref = "kotlin" }
