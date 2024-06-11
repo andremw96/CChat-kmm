@@ -4,6 +4,8 @@ import androidx.lifecycle.ViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
+import kotlinx.coroutines.flow.collectLatest
+import usecase.GenerateUserKey
 import usecase.RegisterDataValidator
 import usecase.RegisterUser
 import usecase.RegisterValidatorResult
@@ -11,6 +13,7 @@ import usecase.RegisterValidatorResult
 class RegisterViewModel(
     private val registerUser: RegisterUser,
     private val registerDataValidator: RegisterDataValidator,
+    private val generateUserKey: GenerateUserKey,
 ) : ViewModel() {
     private var _registerForm: MutableStateFlow<RegisterFormState> = MutableStateFlow(
         value = RegisterFormState()
@@ -47,4 +50,11 @@ class RegisterViewModel(
             )
         )
     }
+
+    suspend fun registerUser(name: String, email: String, password: String) {
+        val userKey = generateUserKey.invoke(email).collectLatest {
+            registerUser.invoke(name, email, password, it.publicKey, it.privateKey)
+        }
+    }
+
 }

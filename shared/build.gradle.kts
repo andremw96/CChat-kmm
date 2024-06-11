@@ -36,6 +36,9 @@ kotlin {
             api(libs.koin.core)
             api(libs.koint.test)
         }
+        androidMain.dependencies {
+            implementation(files("libs/ecdh-curve25519.jar"))
+        }
     }
     task("testClasses")
 }

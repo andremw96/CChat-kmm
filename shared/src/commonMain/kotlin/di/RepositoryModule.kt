@@ -8,7 +8,9 @@ import dev.gitlive.firebase.database.database
 import dev.gitlive.firebase.installations.FirebaseInstallations
 import dev.gitlive.firebase.installations.installations
 import org.koin.dsl.module
+import repository.EncryptRepository
 import repository.LoginRepository
+import repository.impl.EncryptRepositoryImpl
 import repository.impl.LoginRepositoryImpl
 
 val repositoryModule = module {
@@ -26,5 +28,9 @@ val repositoryModule = module {
 
     single<LoginRepository> {
         LoginRepositoryImpl(get(), get(), get())
+    }
+
+    single<EncryptRepository> {
+        EncryptRepositoryImpl()
     }
 }

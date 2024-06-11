@@ -23,7 +23,7 @@ kotlin {
         androidMain.dependencies {
             implementation(compose.preview)
             implementation(libs.androidx.activity.compose)
-            implementation(libs.firebaseBOM)
+            implementation(project.dependencies.platform(libs.firebaseBOM))
         }
         commonMain.dependencies {
             implementation(compose.runtime)
