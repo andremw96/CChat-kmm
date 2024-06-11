@@ -8,9 +8,12 @@ import util.encryptAES
 import util.generateSecureRandomBytes
 import util.generateUserPrivateKey
 import util.generateUserPublicKey
+import util.loadECDHLibrary
 
 class EncryptRepositoryImpl : EncryptRepository {
     override suspend fun generateUserKey(email: String): Flow<UserKey> {
+        loadECDHLibrary()
+
         return flow {
             val random = generateSecureRandomBytes(16)
             val userPrivateKey = generateUserPrivateKey(random)

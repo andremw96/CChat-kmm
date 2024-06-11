@@ -1,5 +1,6 @@
 package util
 
+expect fun loadECDHLibrary()
 expect fun generateSecureRandomBytes(size: Int): ByteArray
 expect fun generateUserPrivateKey(secureRandom: ByteArray): ByteArray
 expect fun generateUserPublicKey(privateKey: ByteArray): ByteArray

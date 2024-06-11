@@ -113,8 +113,13 @@ fun RegisterScreen(
         Spacer(modifier = Modifier.height(16.dp))
         Button(
             onClick = {
-                // TODO: Handle registration logic here (e.g., call a ViewModel function)
+                registerViewModel.registerUser(
+                    state.name,
+                    state.email,
+                    state.password,
+                )
             },
+            enabled = state.isDataValid,
             modifier = Modifier.padding(16.dp)
         ) {
             Text("Register")

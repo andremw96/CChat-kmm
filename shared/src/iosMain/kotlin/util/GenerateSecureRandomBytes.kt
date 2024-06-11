@@ -5,6 +5,9 @@ import kotlinx.cinterop.refTo
 import platform.Security.SecRandomCopyBytes
 import platform.Security.kSecRandomDefault
 
+actual fun loadECDHLibrary() {
+    //TODO
+}
 @OptIn(ExperimentalForeignApi::class)
 actual fun generateSecureRandomBytes(size: Int): ByteArray {
     val bytes = ByteArray(size)

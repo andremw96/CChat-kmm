@@ -6,6 +6,6 @@ import uicompose.screen.register.RegisterViewModel
 
 val androidViewModelModule = module {
     viewModel {
-        RegisterViewModel(get(), get())
+        RegisterViewModel(get(), get(), get())
     }
 }

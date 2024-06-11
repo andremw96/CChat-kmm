@@ -1,6 +1,7 @@
 package util
 
 import android.util.Base64
+import android.util.Log
 import de.frank_durr.ecdh_curve25519.ECDHCurve25519
 import java.io.ByteArrayOutputStream
 import java.nio.charset.StandardCharsets
@@ -11,6 +12,21 @@ import javax.crypto.SecretKeyFactory
 import javax.crypto.spec.IvParameterSpec
 import javax.crypto.spec.PBEKeySpec
 import javax.crypto.spec.SecretKeySpec
+
+actual fun loadECDHLibrary() {
+    try {
+        System.loadLibrary("ecdhcurve25519");
+        Log.i(
+            "Load ecdh",
+            "Loaded ecdhcurve25519 library."
+        )
+    } catch (e: UnsatisfiedLinkError) {
+        Log.i(
+            "Load ecdh",
+            "Load failed ecdhcurve25519 library. $e"
+        )
+    }
+}
 
 actual fun generateSecureRandomBytes(size: Int): ByteArray {
     val random = SecureRandom()

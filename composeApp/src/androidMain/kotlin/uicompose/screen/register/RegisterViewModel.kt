@@ -1,10 +1,12 @@
 package uicompose.screen.register
 
 import androidx.lifecycle.ViewModel
+import androidx.lifecycle.viewModelScope
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.collectLatest
+import kotlinx.coroutines.launch
 import usecase.GenerateUserKey
 import usecase.RegisterDataValidator
 import usecase.RegisterUser
@@ -51,9 +53,13 @@ class RegisterViewModel(
         )
     }
 
-    suspend fun registerUser(name: String, email: String, password: String) {
-        val userKey = generateUserKey.invoke(email).collectLatest {
-            registerUser.invoke(name, email, password, it.publicKey, it.privateKey)
+    fun registerUser(name: String, email: String, password: String) {
+        viewModelScope.launch {
+            generateUserKey.invoke(email).collectLatest { userKey ->
+                registerUser.invoke(name, email, password, userKey.publicKey, userKey.privateKey).collectLatest {
+                    println(it)
+                }
+            }
         }
     }
 
